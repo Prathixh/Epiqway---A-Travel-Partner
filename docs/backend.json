@@ -1,0 +1,107 @@
+
+{
+    "entities": {
+        "User": {
+            "title": "User",
+            "type": "object",
+            "description": "Represents a user of the application.",
+            "properties": {
+                "uid": { "type": "string", "description": "The user's unique ID." },
+                "email": { "type": "string", "description": "The user's email address.", "format": "email" },
+                "name": { "type": "string", "description": "The user's display name." },
+                "avatar": { "type": "string", "description": "URL to the user's profile picture." }
+            },
+            "required": ["uid", "email", "name"]
+        },
+        "Trip": {
+            "title": "Trip",
+            "type": "object",
+            "description": "Represents a single travel itinerary created by a user.",
+            "properties": {
+                "id": { "type": "string", "description": "Unique identifier for the trip." },
+                "name": { "type": "string", "description": "The name of the trip, e.g., 'Paris Adventure'." },
+                "destination": { "type": "string", "description": "The primary destination of the trip." },
+                "startDate": { "type": "string", "format": "date-time", "description": "The start date of the trip." },
+                "days": { "type": "number", "description": "The total number of days for the trip." },
+                "cost": { "type": "number", "description": "The total estimated cost of the trip." },
+                "itinerary": {
+                    "type": "array",
+                    "items": { "$ref": "#/entities/DayItinerary" }
+                },
+                "status": {
+                    "type": "string",
+                    "enum": ["pending", "ongoing", "completed"],
+                    "description": "The current status of the trip."
+                }
+            },
+            "required": ["id", "name", "destination", "startDate", "days", "cost", "itinerary", "status"]
+        },
+        "DayItinerary": {
+            "title": "Day Itinerary",
+            "type": "object",
+            "properties": {
+                "day": { "type": "number" },
+                "date": { "type": "string", "format": "date-time" },
+                "sunrise": { "type": "string" },
+                "sunset": { "type": "string" },
+                "items": {
+                    "type": "array",
+                    "items": { "$ref": "#/entities/ItineraryItem" }
+                }
+            }
+        },
+        "ItineraryItem": {
+            "title": "Itinerary Item",
+            "type": "object",
+            "properties": {
+                "id": { "type": "string" },
+                "time": { "type": "string" },
+                "duration": { "type": "number" },
+                "spotName": { "type": "string" },
+                "address": { "type": "string" },
+                "type": { "type": "string", "enum": ["Attraction", "Food", "Shopping", "Break", "Beach", "Activity", "Other"] },
+                "rating": { "type": "number" },
+                "crowdLevel": { "type": "string", "enum": ["Low", "Medium", "High"] },
+                "description": { "type": "string" },
+                "imageId": { "type": "string" },
+                "costAmount": { "type": "number" },
+                "costDetails": { "type": "string" },
+                "facilities": {
+                    "type": "array",
+                    "items": { "type": "string", "enum": ["Restroom", "Water", "Parking", "Food", "Accessibility"] }
+                }
+            }
+        },
+        "Expense": {
+            "title": "Expense",
+            "description": "Represents a single expense for a trip.",
+            "type": "object",
+            "properties": {
+                "id": { "type": "string", "description": "Unique identifier for the expense." },
+                "tripId": { "type": "string", "description": "The ID of the trip this expense belongs to." },
+                "category": { "type": "string", "enum": ["Food", "Transport", "Accommodation", "Activities", "Shopping", "Other"] },
+                "amount": { "type": "number" },
+                "description": { "type": "string" },
+                "billDate": { "type": "string", "format": "date-time" }
+            },
+            "required": ["id", "tripId", "category", "amount", "billDate"]
+        }
+    },
+    "auth": {
+        "providers": ["password"]
+    },
+    "firestore": {
+        "/users/{userId}": {
+            "schema": { "$ref": "#/entities/User" },
+            "description": "Stores public profile information for each user."
+        },
+        "/users/{userId}/trips/{tripId}": {
+            "schema": { "$ref": "#/entities/Trip" },
+            "description": "Stores the individual trip itineraries for each user."
+        },
+        "/users/{userId}/trips/{tripId}/expenses/{expenseId}": {
+            "schema": { "$ref": "#/entities/Expense" },
+            "description": "Stores expenses for a specific trip."
+        }
+    }
+}
