@@ -1,0 +1,112 @@
+{
+  "placeholderImages": [
+    {
+      "id": "eiffel-tower",
+      "description": "A view of the Eiffel Tower from the Champ de Mars.",
+      "imageUrl": "https://picsum.photos/seed/1/600/400",
+      "imageHint": "Eiffel Tower"
+    },
+    {
+      "id": "le-jules-verne",
+      "description": "A gourmet dish at a restaurant with a view.",
+      "imageUrl": "https://picsum.photos/seed/2/600/400",
+      "imageHint": "gourmet food"
+    },
+    {
+      "id": "champ-de-mars",
+      "description": "A relaxing park bench with a view.",
+      "imageUrl": "https://picsum.photos/seed/3/600/400",
+      "imageHint": "park bench"
+    },
+    {
+      "id": "louvre-museum",
+      "description": "The exterior of the Louvre Museum with its iconic pyramid.",
+      "imageUrl": "https://picsum.photos/seed/4/600/400",
+      "imageHint": "Louvre Museum"
+    },
+    {
+      "id": "galeries-lafayette",
+      "description": "The ornate interior of a grand shopping mall.",
+      "imageUrl": "https://picsum.photos/seed/5/600/400",
+      "imageHint": "shopping mall"
+    },
+    {
+      "id": "le-bouillon-chartier",
+      "description": "The lively interior of a classic French bistro.",
+      "imageUrl": "https://picsum.photos/seed/6/600/400",
+      "imageHint": "french bistro"
+    },
+    {
+      "id": "user-avatar",
+      "description": "A placeholder for a user's avatar.",
+      "imageUrl": "https://picsum.photos/seed/99/100/100",
+      "imageHint": "person portrait"
+    },
+    {
+      "id": "marina-beach",
+      "description": "Sunrise at Marina Beach in Chennai.",
+      "imageUrl": "https://picsum.photos/seed/101/600/400",
+      "imageHint": "Chennai beach"
+    },
+    {
+      "id": "murugan-idli",
+      "description": "A plate of soft, steaming idlis with chutney and sambar.",
+      "imageUrl": "https://picsum.photos/seed/102/600/400",
+      "imageHint": "south-indian food"
+    },
+    {
+      "id": "government-museum-chennai",
+      "description": "The facade of the Government Museum in Chennai.",
+      "imageUrl": "https://picsum.photos/seed/103/600/400",
+      "imageHint": "chennai museum"
+    },
+    {
+      "id": "t-nagar",
+      "description": "A crowded street in a shopping district in Chennai.",
+      "imageUrl": "https://picsum.photos/seed/104/600/400",
+      "imageHint": "chennai market"
+    },
+    {
+      "id": "saravana-bhavan",
+      "description": "A traditional South Indian thali meal.",
+      "imageUrl": "https://picsum.photos/seed/105/600/400",
+      "imageHint": "indian thali"
+    },
+    {
+      "id": "notre-dame",
+      "description": "The famous Notre-Dame Cathedral in Paris.",
+      "imageUrl": "https://picsum.photos/seed/7/600/400",
+      "imageHint": "Notre-Dame Cathedral"
+    },
+    {
+      "id": "shakespeare-and-co",
+      "description": "The storefront of the Shakespeare and Company bookstore in Paris.",
+      "imageUrl": "https://picsum.photos/seed/8/600/400",
+      "imageHint": "bookstore paris"
+    },
+    {
+      "id": "latin-quarter",
+      "description": "A charming street in the Latin Quarter of Paris.",
+      "imageUrl": "https://picsum.photos/seed/9/600/400",
+      "imageHint": "paris street"
+    },
+    {
+      "id": "kapaleeshwarar-temple",
+      "description": "The colorful gopuram of Kapaleeshwarar Temple in Chennai.",
+      "imageUrl": "https://picsum.photos/seed/106/600/400",
+      "imageHint": "chennai temple"
+    },
+    {
+      "id": "dakshinachitra",
+      "description": "Traditional architecture at DakshinaChitra heritage museum.",
+      "imageUrl": "https://picsum.photos/seed/107/600/400",
+      "imageHint": "heritage museum"
+    },
+    {
+      "id": "mahabalipuram",
+      "description": "Ancient monolithic temples at Mahabalipuram.",
+      "imageUrl": "https://picsum.photos/seed/108/600/400",
+      "imageHint": "ancient temples"
+    }
+  ]
+}
