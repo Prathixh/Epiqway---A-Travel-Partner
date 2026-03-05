@@ -1,0 +1,49 @@
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+  
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+    
+    // USERS collection
+    match /users/{userId} {
+      // A user can read their own profile
+      allow get: if isOwner(userId);
+      
+      // A user can create their own profile document
+      allow create: if isOwner(userId);
+      
+      // A user can update their own profile
+      allow update: if isOwner(userId);
+      
+      // Users cannot be deleted from the app UI
+      allow delete: if false;
+
+      // TRIPS subcollection
+      match /trips/{tripId} {
+        // A user can read their own trips
+        allow get, list: if isOwner(userId);
+
+        // A user can create, update, or delete their own trips
+        allow write: if isOwner(userId);
+
+        // EXPENSES subcollection
+        match /expenses/{expenseId} {
+            // A user can read their own expenses
+            allow get, list: if isOwner(userId);
+
+            // A user can create, update, or delete their own expenses
+            allow write: if isOwner(userId);
+        }
+      }
+    }
+  }
+}
